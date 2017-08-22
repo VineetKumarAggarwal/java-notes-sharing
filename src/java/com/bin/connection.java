@@ -11,7 +11,7 @@ import java.sql.SQLException;
 
 /**
  *
- * @author Desmon
+ * @author vinet
  */
 public class connection {
     public static Connection connect() throws ClassNotFoundException, SQLException

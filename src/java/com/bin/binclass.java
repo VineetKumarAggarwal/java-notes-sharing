@@ -7,7 +7,7 @@ package com.bin;
 
 /**
  *
- * @author Desmon
+ * @author vinet
  */
 public class binclass {
     public String userid,password,rollno,fname,lname,confirmpassword,gender;

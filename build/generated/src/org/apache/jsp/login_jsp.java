@@ -117,7 +117,7 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            </nav>\n");
       out.write("        </div>\n");
       out.write("        <div class=\"container\">\n");
-      out.write("            <form action=\"loginservlet\" method=\"get\">\n");
+      out.write("            <form action=\"login_servlet\" method=\"get\">\n");
       out.write("                <label><b>User ID</b></label>\n");
       out.write("                <input type=\"email\" class=\"form-control\" name=\"userid\" required><br>\n");
       out.write("                <label ><b>Password</b></label>\n");

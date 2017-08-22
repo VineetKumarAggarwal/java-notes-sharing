@@ -19,9 +19,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Desmon
+ * @author vinet
  */
-public class loginservlet extends HttpServlet {
+public class login_servlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,7 +36,8 @@ public class loginservlet extends HttpServlet {
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
+            /* TODO output your page here. You may use following sample code. */
+            
             String userid = request.getParameter("userid");
             String password = request.getParameter("password");
             service ser = new service();
@@ -71,8 +72,6 @@ public class loginservlet extends HttpServlet {
                 request.getRequestDispatcher("courses.jsp").include(request, response);
             }
 //            out.close();
-//            }
-
         }
     }
 
@@ -91,9 +90,9 @@ public class loginservlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(loginservlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(login_servlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(loginservlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(login_servlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -111,9 +110,9 @@ public class loginservlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(loginservlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(login_servlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(loginservlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(login_servlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
