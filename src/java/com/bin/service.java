@@ -82,10 +82,31 @@ public class service {
             pst.setString(2, objbin.getLname());
             pst.setString(3, objbin.getUserid());
             pst.setString(4, objbin.getRollno());
-            System.out.println(objbin.getFname());
-            System.out.println(objbin.getLname());
-            System.out.println(objbin.getUserid());
-            System.out.println(objbin.getRollno());
+//            System.out.println(objbin.getFname());
+//            System.out.println(objbin.getLname());
+//            System.out.println(objbin.getUserid());
+//            System.out.println(objbin.getRollno());
+            int i = pst.executeUpdate();
+            if (i > 0) {
+//                System.out.print("not done");
+                result = "Update Done";
+                return result;
+            }
+        } catch (Exception e) {
+
+        }
+        return result;
+    }
+
+    public String updatePassword(binclass objbin) {
+        Connection cnn1;
+        String result = "not done";
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            cnn1 = DriverManager.getConnection("jdbc:mysql:///notes", "root", "");
+            PreparedStatement pst = cnn1.prepareStatement("update login_student set password=? where rollno=?");
+            pst.setString(1, objbin.getUpass());
+            System.out.println(objbin.getUpass());
             int i = pst.executeUpdate();
             if (i > 0) {
                 System.out.print("not done");
@@ -164,6 +185,7 @@ public class service {
             objbin.setLname(rs1.getString("lname"));
             objbin.setRollno(rs1.getString("rollno"));
             objbin.setUserid(rs1.getString("email"));
+            objbin.setPassword(rs1.getString("password"));
         }
         return objbin;
     }
@@ -179,6 +201,7 @@ public class service {
             objbin.setLname(rs1.getString("lname"));
             objbin.setRollno(rs1.getString("rollno"));
             objbin.setUserid(rs1.getString("email"));
+            objbin.setPassword(rs1.getString("password"));
         }
         return objbin;
     }

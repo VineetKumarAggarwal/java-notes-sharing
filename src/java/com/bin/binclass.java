@@ -10,8 +10,17 @@ package com.bin;
  * @author vinet
  */
 public class binclass {
-    public String userid,password,rollno,fname,lname,confirmpassword,gender;
+    public String userid,password,rollno,fname,lname,confirmpassword,gender,upass;
     public byte[] myimage;
+
+    public String getUpass() {
+        return upass;
+    }
+
+    public void setUpass(String upass) {
+        this.upass = upass;
+    }
+    
 
     public byte[] getMyimage() {
         return myimage;

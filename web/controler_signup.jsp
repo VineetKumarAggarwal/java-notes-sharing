@@ -50,3 +50,11 @@
         response.sendRedirect("studentrecord.jsp");
     }
 %>
+<%
+    if(request.getParameter("change_pass")!=null)
+    {
+        service ser= new service();
+        String result=ser.updatePassword(objbin);
+        out.print(result);
+    }    
+%>

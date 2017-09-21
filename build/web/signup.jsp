@@ -154,17 +154,17 @@
                     document.getElementById("rollno").focus();
                     return false;
                 }
-                if (pas.length >= 6 && pas.length <= 10) {
+                if (pas.length >= 6 && pas.length <= 14) {
                 } else
                 {
-                    alert("Password length in between 6 to 10 characters.")
+                    alert("Password length in between 6 to 14 characters.")
                     document.getElementById("pass").focus();
                     return false;
                 }
-                if (cpas.length >= 6 && cpas.length <= 10) {
+                if (cpas.length >= 6 && cpas.length <= 14) {
                 } else
                 {
-                    alert("Password length in between 6 to 10 characters.")
+                    alert("Password length in between 6 to 14 characters.")
                     document.getElementById("pass1").focus();
                     return false;
                 }

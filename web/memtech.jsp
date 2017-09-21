@@ -12,8 +12,8 @@
         <title>JSP Page</title>
     </head>
     <form action="view_edit_info.jsp" method="get">
-                        <input  type="submit" value="<%= session.getAttribute("name")%>" name="pass"</input>
-                        </form>
+        <input  type="submit" value="<%= session.getAttribute("name")%>" name="pass"</input>
+    </form>
     <body style="background-color: navajowhite">
         <font size="10" style="margin-left:130px;"><b>Mechanical Engineering (ME)</b></font>
         <table style="border:0; margin-left: 280px; margin-top: 50px;">
