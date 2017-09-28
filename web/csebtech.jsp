@@ -27,31 +27,31 @@
             </tr>
             <tr style="background-color: peru">
                 <td align="center" style="padding: 10px;"><b>2.</b></td>
-                <td align="center" style="padding: 10px;"><b><a href="#"><font color="black">Semester 2</font></a></b></td>
+                <td align="center" style="padding: 10px;"><b><a href="sem2sub_btech_cse.jsp"><font color="black">Semester 2</font></a></b></td>
             </tr>
             <tr>
                 <td align="center" style="padding: 10px;"><b>3.</b></td>
-                <td align="center" style="padding: 10px;"><b><a href="#"><font color="black">Semester 3</font></a></b></td>
+                <td align="center" style="padding: 10px;"><b><a href="sem3sub_btech_cse.jsp"><font color="black">Semester 3</font></a></b></td>
             </tr>
             <tr style="background-color: peru">
                 <td align="center" style="padding: 10px;"><b>4.</b></td>
-                <td align="center" style="padding: 10px;"><b><a href="#"><font color="black">Semester 4</font></a></b></td>
+                <td align="center" style="padding: 10px;"><b><a href="sem4sub_btech_cse.jsp"><font color="black">Semester 4</font></a></b></td>
             </tr>
             <tr>
                 <td align="center" style="padding: 10px;"><b>5.</b></td>
-                <td align="center" style="padding: 10px;"><b><a href="#"><font color="black">Semester 5</font></a></b></td>
+                <td align="center" style="padding: 10px;"><b><a href="sem5sub_btech_cse.jsp"><font color="black">Semester 5</font></a></b></td>
             </tr>
             <tr style="background-color: peru">
                 <td align="center" style="padding: 10px;"><b>6.</b></td>
-                <td align="center" style="padding: 10px;"><b><a href="#"><font color="black">Semester 6</font></a></b></td>
+                <td align="center" style="padding: 10px;"><b><a href="sem6sub_btech_cse.jsp"><font color="black">Semester 6</font></a></b></td>
             </tr>
             <tr>
                 <td align="center" style="padding: 10px;"><b>7.</b></td>
-                <td align="center" style="padding: 10px;"><b><a href="#"><font color="black">Semester 7</font></a></b></td>
+                <td align="center" style="padding: 10px;"><b><a href="sem7sub_btech_cse.jsp"><font color="black">Semester 7</font></a></b></td>
             </tr>
             <tr style="background-color: peru">
                 <td align="center" style="padding: 10px;"><b>8.</b></td>
-                <td align="center" style="padding: 10px;"><b><a href="#"><font color="black">Semester 8</font></a></b></td>
+                <td align="center" style="padding: 10px;"><b><a href="sem8sub_btech_cse.jsp"><font color="black">Semester 8</font></a></b></td>
             </tr>
         </table>
     </body>

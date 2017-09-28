@@ -86,31 +86,28 @@
                     <td><input type="text" name="lname"  required= "enter last name" value="<%=binobj.getLname()%>"></input></td>
                 </tr>
                 <tr>
-                    <td><b>E-Mail</b></td>
+                    <td><b>Email</b></td>
                     <td><input type="email" name="userid" required="enter email" value="<%=binobj.getUserid()%>"></input></td>
                 </tr>
                 <tr>
-                    <td><b>Roll no</b></td>
-                    <td><input type="number" name="rollno" required=" enter address" value="<%=binobj.getRollno()%>" disabled></input></td>
+                    <td><b>roll_no</b></td>
+                    <td><input type="number" name="rollno" required=" enter address" value="<%=binobj.getRollno()%>"></input></td>
                 </tr>
             </table>
             <input type="submit" value="submit" class="btn btn-default" name="update">
         </form>
-                <form action="changepassword.jsp">
-            <input type="submit" value="<%=binobj.getRollno()%>" class="btn btn-default" name="passw">
-        </form>
     </div>
-    <div class="footer">
-        <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-            <ul class="nav nav-pills pull-right">													
-                <li role="presentation "><a class="b1 edit5" href="# ">About Us</a></li>
-                <li role="presentation "><a class="b1 edit5" href="# ">Home</a></li>
-                <li role=" presentation "><a class="b1 edit5" href="# ">Privacy</a></li>
-                <li role="presentation "><a class="b1 edit5" href="# ">Advertising</a></li>
-                <li role="presentation "><a class="b1 edit5" href="# ">Cookies</a></li>
-                <li role="presentation "><a class="b1 edit5" href="# ">Ad Choices</a></li>
-            </ul>
-            </nav>
-        </div>
+                <div class="footer">
+            <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+                <ul class="nav nav-pills pull-right">													
+                    <li role="presentation "><a class="b1 edit5" href="# ">About Us</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="# ">Home</a></li>
+                    <li role=" presentation "><a class="b1 edit5" href="# ">Privacy</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="# ">Advertising</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="# ">Cookies</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="# ">Ad Choices</a></li>
+                </ul>
+                </nav>
+            </div>
 </body>
 </html>

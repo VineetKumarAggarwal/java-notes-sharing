@@ -8,7 +8,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-
         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
@@ -81,16 +80,16 @@
             </nav>
         </div>
         <div class="container">
-            <form>
+            <form action="upload.jsp" method="get">
                 <div class="input-group">
                     <label class="input-group-btn">
                         <span class="btn btn-primary">
                             Browse&hellip; <input type="file" style="display: none;" multiple>
                         </span>
                     </label>
-                    <input type="text" class="form-control" readonly>
+                    <input type="text" class="form-control" name="getfile" readonly>
                 </div><br><br>
-                <select id="course" onchange="myFunction()">
+                <select id="course" name="subpart" onchange="myFunction()">
                     <option value="">--Select streams--</option>
                     <option value="CSE(B.TECH)">CSE(B.TECH)</option>
                     <option value="ME(B.TECH)">ME(B.TECH)</option>
@@ -103,12 +102,12 @@
                     <option value="BBA">BBA</option>
                     <option value="MBA">MBA</option>
                 </select>
-                <select id="subparts">
+                <select id="subparts" name="subpart1">
                     <option value="">--Select semester--</option>
                 </select>
                 <input type="submit" name="btn_upload" class="btn btn-default" value="Upload file"><br><br>
                 <a href="studentrecord.jsp"><button type="button" class="btn btn-info">Student Info</button></a><br><br><br>
-                <a href="studentrecord.jsp"><button type="button" class="btn btn-info">Subjects Info</button></a><br><br><br>
+                <a href="subjectrecord.jsp"><button type="button" class="btn btn-info">Subjects Info</button></a><br><br><br>
                 <input type="search" class="form-control" name="search" id="search">
                 <input type="button" name="btn_search" id="btn_search" class="btn btn-default bt1" value="Search">
             </form>
@@ -185,7 +184,6 @@
                             if (log)
                                 alert(log);
                         }
-
                     });
                 });
 

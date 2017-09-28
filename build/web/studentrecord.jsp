@@ -3,7 +3,6 @@
     Created on : Aug 17, 2017, 1:44:58 AM
     Author     : vinet
 --%>
-
 <%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -13,7 +12,6 @@
     List studentlist = ser.student_lsit();
     binclass objbin;
 %>
-
 <html>
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

@@ -5,30 +5,44 @@
  */
 package com.bin;
 
+import java.sql.Blob;
+
 /**
  *
  * @author vinet
  */
 public class binclass {
-    public String userid,password,rollno,fname,lname,confirmpassword,gender,upass;
-    public byte[] myimage;
-
-    public String getUpass() {
-        return upass;
-    }
-
-    public void setUpass(String upass) {
-        this.upass = upass;
-    }
+    public String userid,password,rollno,fname,lname,confirmpassword,gender,branch,semester;
     
+   public Blob file;
 
-    public byte[] getMyimage() {
-        return myimage;
+    public Blob getFile() {
+        return file;
     }
 
-    public void setMyimage(byte[] myimage) {
-        this.myimage = myimage;
+    public void setFile(Blob file) {
+        this.file = file;
     }
+
+   
+
+    public String getBranch() {
+        return branch;
+    }
+
+    public void setBranch(String branch) {
+        this.branch = branch;
+    }
+
+    public String getSemester() {
+        return semester;
+    }
+
+    public void setSemester(String semester) {
+        this.semester = semester;
+    }
+
+   
 
     public String getFname() {
         return fname;
@@ -77,16 +91,10 @@ public class binclass {
     public void setUserid(String userid) {
         this.userid = userid;
     }
-
     public String getPassword() {
         return password;
     }
-
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    
-
-    
 }

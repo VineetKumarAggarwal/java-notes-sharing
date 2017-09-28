@@ -77,7 +77,7 @@
             </nav>
         </div>
         <div class="container">
-            <form action="login_servlet" method="get">
+            <form action="loginservlet" method="get">
                 <label><b>User ID</b></label>
                 <input type="email" class="form-control" name="userid" required><br>
                 <label ><b>Password</b></label>

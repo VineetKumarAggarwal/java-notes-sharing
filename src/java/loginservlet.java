@@ -21,7 +21,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author vinet
  */
-public class login_servlet extends HttpServlet {
+public class loginservlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,8 +36,7 @@ public class login_servlet extends HttpServlet {
             throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            
+
             String userid = request.getParameter("userid");
             String password = request.getParameter("password");
             service ser = new service();
@@ -63,7 +62,6 @@ public class login_servlet extends HttpServlet {
                 out.println("</script>");
                 request.getRequestDispatcher("login.jsp").include(request, response);
             } else {
-                //        out.print("welcome,"+name);
                 HttpSession session = request.getSession();
                 session.setAttribute("name", name);
                 out.println("<script type=\"text/javascript\">");
@@ -71,7 +69,6 @@ public class login_servlet extends HttpServlet {
                 out.println("</script>");
                 request.getRequestDispatcher("courses.jsp").include(request, response);
             }
-//            out.close();
         }
     }
 
@@ -90,12 +87,11 @@ public class login_servlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(login_servlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(loginservlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(login_servlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(loginservlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -110,9 +106,9 @@ public class login_servlet extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(login_servlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(loginservlet.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SQLException ex) {
-            Logger.getLogger(login_servlet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(loginservlet.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

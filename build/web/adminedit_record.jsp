@@ -58,7 +58,7 @@
                 </tr>
                 <tr>
                     <td><b>roll_no</b></td>
-                    <td><input type="number" class="form-control"name="rollno" required=" enter address" value="<%=binobj.getRollno()%>" disabled></input></td>
+                    <td><input type="number" class="form-control"name="rollno" required=" enter address" value="<%=binobj.getRollno()%>"></input></td>
                 </tr>
             </table>
             <input type="submit" value="submit" class="btn btn-default" name="update">

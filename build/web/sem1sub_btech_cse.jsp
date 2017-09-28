@@ -28,20 +28,7 @@
                                 <div style="background-color: navajowhite; padding: 10px;"><font size="4">ENGLISH</font></div>
                                 <div style="background-color: peru; padding: 10px;"><font size="4">EVS</font></div>
             </div>
-            <form>
-                <input id="Button1" type="button" value="Using JS" onclick="DynamicDiv();">
-            </form>
+            
         </div>
-        <script>
-            function DynamicDiv()
-            {
-                var dynDiv = document.createElement("div");
-                dynDiv.innerHTML = "Created using JavaScript";
-                dynDiv.style.height = "100%";
-                dynDiv.style.width = "80%";
-                dynDiv.style.backgroundColor = 'peru';
-                document.body.appendChild(dynDiv);
-            }
-        </script>
     </body>
 </html>

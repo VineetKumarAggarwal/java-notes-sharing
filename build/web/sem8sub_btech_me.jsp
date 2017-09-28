@@ -28,7 +28,6 @@
                                 <div style="background-color: navajowhite; padding: 10px;"><font size="4">ENGLISH</font></div>
                                 <div style="background-color: peru; padding: 10px;"><font size="4">EVS</font></div>
             </div>
-            
         </div>
     </body>
 </html>
