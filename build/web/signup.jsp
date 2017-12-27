@@ -62,7 +62,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">NOTES SHARING</a>
+                        <a class="navbar-brand" href="courses.jsp">NOTES SHARING</a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -72,10 +72,9 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">Contact us</a></li>
+                                    <li><a href="about us.jsp">About us</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="contact us.jsp">Contact us</a></li>
                                 </ul>
                             </li>
                         </ul>

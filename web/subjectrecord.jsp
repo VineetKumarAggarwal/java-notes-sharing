@@ -1,68 +1,108 @@
 <%-- 
-    Document   : subjectrecord
-    Created on : Sep 7, 2017, 4:44:01 PM
+    Document   : studentrecord
+    Created on : Aug 17, 2017, 1:44:58 AM
     Author     : vinet
 --%>
-
-<%@page import="com.bin.service"%>
-<%@page import="java.sql.ResultSet"%>
+<%
+if(session.getAttribute("name")==null)
+{
+    %><script>
+        alert("must have to login first");
+        window.location.assign("login.jsp");
+        </script><%      
+}
+%>
 <%@page import="java.util.List"%>
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="java.sql.Connection"%>
-<%@page import="com.bin.binclass"%>
-<%@page import="java.io.OutputStream"%>
-<%@page import="java.io.FileOutputStream"%>
-<%@page import="java.io.File"%>
-<%@page import="java.io.InputStream"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@page import ="com.bin.*"%>
+<%
+    service ser = new service();
+    List studentlist = ser.view_addfiles();
+    binclass objbin;
+%>
 <html>
     <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+        <style>
+            .navbar{
+                background-color: #AE94F5;
+            }
+        </style>
     </head>
     <body>
-        <%
-            service sc = new service();
-            binclass bn = sc.view_addfiles();
-            
-        %>
-        <table>
+        <div class="header"> 
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="courses.jsp">NOTES SHARING</a>
+                    </div>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+<!--                            <li><a  href="#" onclick="return adminlogin()">Administrator</a></li>
+                            <li><a  href="signup.jsp">Sign Up page for Students</a><br></li>-->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="about us.jsp">About us</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="contact us.jsp">Contact us</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        <table class="table table-striped table table-hover">
             <tr>
-                <%
-                    
-                        int c = 0,i=0;
-                     InputStream binaryStream = bn.getFile().getBinaryStream(1, bn.getFile().length());   
-                     System.out.println(binaryStream);
-                     %>
-                </tr><tr>
-                <%
-                     OutputStream f = new FileOutputStream(new File("hello1"+i+".pdf"));
-                        while ((c = binaryStream.read()) > -1) {
-					f.write(c);
-				}%>
-                </tr>
-                    <%
-//            ResultSet rs=null;
-//            int i=0;
-//            try{
-//            while (rs.next()) {
-//				InputStream in = rs.getBinaryStream(1);
-//				OutputStream f = new FileOutputStream(new File("hello1"+i+".jpg"));
-//				i++;
-//				int c = 0;
-//				while ((c = in.read()) > -1) {
-//					f.write(c);
-//				}
-//				f.close();
-//				in.close();
-//			}
-//                }catch(Exception ex){
-//			System.out.println(ex.getMessage());
-//		}
-                %>
+                <td>S.No</td>
+                <td>Branch Name</td>
+                <td>semester Name</td>
+                <td>pdf</td>
+            </tr>
+            <%if (studentlist.size() > 0) {
+                    for (int a = 0; a < studentlist.size(); a++) {
+                        objbin = (binclass) studentlist.get(a);
+            %>
+            <tr>
+                <td><%=a + 1%></td>
+                <td><%=objbin.getBranch()%></td>
+                <td><%=objbin.getSemester()%></td>
+                <td><%=objbin.getFile()%></td>
+            </tr>    
+            <%
+                    }
+                }
+            %>
         </table>
+        <div class="footer">
+            <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+                <ul class="nav nav-pills pull-right">													
+                    <li role="presentation "><a class="b1 edit5" href="# ">About Us</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="# ">Home</a></li>
+                    <li role=" presentation "><a class="b1 edit5" href="# ">Privacy</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="# ">Advertising</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="# ">Cookies</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="# ">Ad Choices</a></li>
+                </ul>
+                </nav>
+            </div>
     </body>
 </html>

@@ -3,6 +3,15 @@
     Created on : Jul 20, 2017, 9:59:26 PM
     Author     : vinet
 --%>
+<%
+if(session.getAttribute("name")==null)
+{
+    %><script>
+        alert("must have to login first");
+        window.location.assign("login.jsp");
+        </script><%      
+}
+%>
 <%@page import="com.bin.*" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -19,12 +28,20 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
+        <style>
+    .navbar{
+                background-color: #AE94F5;
+    }
+    body{
+                background-image: url("img4.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        </style>
         <title>Courses</title>
     </head>
     <body style="background-color: navajowhite">
         <div class="header"> 
-
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -35,30 +52,28 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">NOTES SHARING</a>
+                        <a class="navbar-brand" href="courses.jsp">NOTES SHARING</a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <form action="view_edit_info.jsp" method="get">
-                        <input  type="submit" value="<%= session.getAttribute("name")%>" name="pass"</input>
-                        </form>
-<!--                            <li><a  href="signup.jsp">Sign Up page for Students</a><br></li>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a  href="view_edit_info.jsp" ><button name="btn_upload" class="btn btn-default">Edit</button></a></li>
+                            <li><a href="logout.jsp"><button name="btn_upload" class="btn btn-default">LogOut</button></a><br></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">Contact us</a></li>
+                                    <li><a href="about us.jsp">About us</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="contact us.jsp">Contact us</a></li>
                                 </ul>
-                            </li>-->
-                        
+                            </li>
+                        </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
             </nav>
         </div>
-        <font size="10" style="margin-left:190px;"><b>Courses Available</b></font>
-        <p style="margin-left: 370px; margin-top: 30px;"><font size="6"><u>Bachelor of Technology (B.Tech)</u></font></p>
+        <font size="5" style="margin-left:190px;"><b>Courses Available</b></font>
+        <p style="margin-left: 370px; margin-top: 30px;"><font size="5"><u>Bachelor of Technology (B.Tech)</u></font></p>
         <ul>
             <li style="margin-left: 400px; margin-bottom: 10px;"><a href="csebtech.jsp">Computer Science Engineering (CSE)</a></li>
             <li style="margin-left: 400px; margin-bottom: 10px;"><a href="mebtech.jsp">Mechanical Engineering (ME)</a></li>
@@ -66,16 +81,28 @@
             <li style="margin-left: 400px; margin-bottom: 10px;"><a href="cebtech.jsp">Civil Engineering (CE)</a></li>
             <li style="margin-left: 400px; margin-bottom: 10px;"><a href="eebtech.jsp">Electrical Engineering (EE)</a></li>
         </ul>
-        <p style="margin-left: 370px;"><u><font size="6">Master of Technology (M.Tech)</font></u></p>
+        <p style="margin-left: 370px;"><u><font size="5">Master of Technology (M.Tech)</font></u></p>
         <ul>
             <li style="margin-left: 400px; margin-bottom: 10px;"><a href="csemtech.jsp">Computer Science Engineering (CSE)</a></li>                
             <li style="margin-left: 400px; margin-bottom: 10px;"><a href="ecemtech.jsp">Electronics & Communication Engineering (ECE)</a></li>                
             <li style="margin-left: 400px; margin-bottom: 10px;"><a href="memtech.jsp">Mechanical Engineering (ME)</a></li>                
         </ul>
-        <p style="margin-left: 370px;"><u><font size="6">Business Administration (BBA/MBA)</font></u></p>
+        <p style="margin-left: 370px;"><u><font size="5">Business Administration (BBA/MBA)</font></u></p>
         <ul>
             <li style="margin-left: 400px; margin-bottom: 10px;"><a href="bba.jsp">Bachelor of Business Administration (BBA)</a></li>
             <li style="margin-left: 400px; margin-bottom: 10px;"><a href="mba.jsp">Master of Business Administration (MBA)</a></li>
         </ul>
+        <div class="footer">
+                    <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+                    <ul class="nav nav-pills pull-right">													
+                    <li role="presentation "><a class="b1 edit5" href="# ">About Us</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="# ">Home</a></li>
+                    <li role=" presentation "><a class="b1 edit5" href="# ">Privacy</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="# ">Advertising</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="# ">Cookies</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="# ">Ad Choices</a></li>
+                    </ul>
+                    </div>
+                </div>
         </body>
 </html>

@@ -3,7 +3,15 @@
     Created on : Aug 11, 2017, 4:30:27 PM
     Author     : vinet
 --%>
-
+<%
+if(session.getAttribute("name")==null)
+{
+    %><script>
+        alert("must have to login first");
+        window.location.assign("login.jsp");
+        </script><%      
+}
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,7 +20,6 @@
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -43,6 +50,17 @@
                 cursor: inherit;
                 display: block;
             }
+            .navbar{
+                background-color: #AE94F5;
+            }
+            body{
+                background-image: url("img4.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+            .navbar{
+                background-color: #AE94F5;
+            }
         </style>
     </head>
     <body> 
@@ -58,20 +76,19 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">NOTES SHARING</a>
+                        <a class="navbar-brand" href="courses.jsp">NOTES SHARING</a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a  href="#" onclick="return adminlogin()">Administrator</a></li>
+                            <li><a  href="logout.jsp">Logout</a></li>
                             <li><a  href="signup.jsp">Sign Up page for Students</a><br></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">Contact us</a></li>
+                                    <li><a href="about us.jsp">About us</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="contact us.jsp">Contact us</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -87,7 +104,7 @@
                             Browse&hellip; <input type="file" style="display: none;" multiple>
                         </span>
                     </label>
-                    <input type="text" class="form-control" name="getfile" readonly>
+                    <input type="text" class="form-control" name="getfile" value="" readonly>
                 </div><br><br>
                 <select id="course" name="subpart" onchange="myFunction()">
                     <option value="">--Select streams--</option>
@@ -108,8 +125,6 @@
                 <input type="submit" name="btn_upload" class="btn btn-default" value="Upload file"><br><br>
                 <a href="studentrecord.jsp"><button type="button" class="btn btn-info">Student Info</button></a><br><br><br>
                 <a href="subjectrecord.jsp"><button type="button" class="btn btn-info">Subjects Info</button></a><br><br><br>
-                <input type="search" class="form-control" name="search" id="search">
-                <input type="button" name="btn_search" id="btn_search" class="btn btn-default bt1" value="Search">
             </form>
         </div>
         <script>
@@ -192,8 +207,8 @@
         <div class="footer">
             <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
                 <ul class="nav nav-pills pull-right">													
-                    <li role="presentation "><a class="b1 edit5" href="# ">About Us</a></li>
-                    <li role="presentation "><a class="b1 edit5" href="# ">Home</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="about us.jsp">About Us</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="contact us.jsp">Home</a></li>
                     <li role=" presentation "><a class="b1 edit5" href="# ">Privacy</a></li>
                     <li role="presentation "><a class="b1 edit5" href="# ">Advertising</a></li>
                     <li role="presentation "><a class="b1 edit5" href="# ">Cookies</a></li>

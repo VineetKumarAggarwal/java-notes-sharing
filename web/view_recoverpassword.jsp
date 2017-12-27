@@ -5,13 +5,11 @@
 --%>
 <%@page import ="com.bin.*"%>
 <%
-    String userid = request.getParameter("userid");
     int rollno = Integer.parseInt(request.getParameter("rollno"));
     service ser = new service();
-    binclass binobj = ser.recover_password(userid, rollno);
+    binclass binobj = ser.recover_password(rollno);
     String pass = binobj.getPassword();
-    String email = binobj.getUserid();
-    String roll_no=binobj.getRollno();
+    
     if (pass!=null) {
 %>
 <script>
@@ -19,10 +17,10 @@
     window.location.assign("login.jsp");
 </script>
 <%
-} else if (email==null){
+} else{
 %>
 <script>
-    alert("Wrong try again");
+    alert("Wrong Roll-No is entered.");
     window.location.assign("recoverpassword.jsp");
 </script>
 <%

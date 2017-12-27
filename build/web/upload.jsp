@@ -3,27 +3,43 @@
     Created on : Aug 30, 2017, 7:34:17 PM
     Author     : vinet
 --%>
+<%if(session.getAttribute("name")==null)
+{
+    %><script>
+        alert("must have to login first");
+        window.location.assign("login.jsp");
+        </script><%      
+}
+%>
 <%@page import ="com.bin.*"%>
 
 <%
-    if (request.getParameter("btn_upload") != null && request.getParameter("getfile") !=null && request.getParameter("subpart") != "--Select streams--" && request.getParameter("subpart1") !="--Select semester--")
-    {
-    String filename = request.getParameter("getfile");
-    String branchname = request.getParameter("subpart");
-    String samestername = request.getParameter("subpart1");
-    service ser = new service();
-    ser.addfiles(filename,branchname,samestername);
+    
+    try{
+                if (request.getParameter("btn_upload")!=null&&request.getParameter("subpart1")!=""&&request.getParameter("subpart")!=""&&request.getParameter("getfile")!="")
+                {
+                    
+                String filename = request.getParameter("getfile");
+                String branchname = request.getParameter("subpart");
+                String samestername = request.getParameter("subpart1");
+                service ser = new service();
+                String result=ser.addfiles(filename,branchname,samestername);
+                if(result.equals("done"))
+                {
+                %><script>
+                        alert("file uploaded");
+                        window.location.assign("admin.jsp");
+                    </script><%
+                }
+                }
+else{%><script>
+                        alert("All required fields are not selected.");
+                        window.location.assign("admin.jsp");
+                    </script><%}
+        }
+    catch(Exception ex){
     }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <script>
-        </script>
-    </body>
-</html>
+

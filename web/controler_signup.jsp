@@ -39,7 +39,20 @@
     if (request.getParameter("update") != null) {
         service ser = new service();
         String result = ser.updateRecord(objbin);
-        out.print(result);
+        if(result==null)
+        {
+        %><script>
+                        alert("You can't change your roll no.");
+                        window.location.assign("view_edit_info.jsp");
+                    </script><%
+        }
+        else
+        {
+        %><script>
+                        alert("Update done");
+                        window.location.assign("courses.jsp");
+                    </script><%
+        }
     }
 %>
 <%

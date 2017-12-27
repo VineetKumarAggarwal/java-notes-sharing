@@ -44,6 +44,9 @@
             body{
                 background-image:url("img.jpg");
             }
+            .navbar{
+                background-color: #AE94F5;
+                }
         </style>
     </head>
     <body>
@@ -58,7 +61,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">NOTES SHARING</a>
+                        <a class="navbar-brand" href="courses.jsp">NOTES SHARING</a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -68,10 +71,9 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">Contact us</a></li>
+                                    <li><a href="about us.jsp">About us</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="contact us.jsp">Contact us</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -86,7 +88,7 @@
                         <div class="container-fluid">
                             <!-- Brand and toggle get grouped for better mobile display -->
                             <div class="navbar-header">
-                                <a class="navbar-brand" href="#">Enter Your Email $ Password</a>
+                                <a class="navbar-brand" href="#">Enter Your Roll No.</a>
                             </div>
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -95,7 +97,7 @@
                     </nav>
                 </header>
                 <table class="table">
-                    <tr><td><input class="form-control"  type="email" name="userid" placeholder="email" required></td></tr>
+<!--                    <tr><td><input class="form-control"  type="email" name="userid" placeholder="email" required></td></tr>-->
                     <tr><td><input class="form-control"  type="number" name="rollno" placeholder="rollnumber" required></td></tr>
                     <tr><td><input class="btn btn-default" type="submit" name="recover"></td></tr>
                 </table>
@@ -113,4 +115,21 @@
         </div>
 
     </body>
+    <script>
+        function adminlogin()
+        {
+            var pass = 1234;
+            var message = prompt("plesae enter correct id");
+            if (pass == message)
+            {
+                window.location.assign("admin.jsp");
+                return true;
+            } else
+            {
+                return false;
+            }
+        }
+    window.history.forward();
+    function noBack() { window.history.forward(); }
+    </script>
 </html>

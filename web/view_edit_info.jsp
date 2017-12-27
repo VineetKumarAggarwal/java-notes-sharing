@@ -7,7 +7,7 @@
 <%@page import ="com.bin.*"%>
 
 <%
-    String name = request.getParameter("pass");
+    String name=String.valueOf(session.getAttribute("name"));
     service ser = new service();
     binclass binobj = ser.view_details(name);
 %>
@@ -37,12 +37,19 @@
                 margin :5px;
                 border-radius: 4px;
             }
+            .navbar{
+                background-color: #AE94F5;
+            }
+            body{
+                background-image: url("img.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
         </style>
     </script>
 </head>
 <body style="margin:0px; background-color: wheat">
     <div class="header"> 
-
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -53,7 +60,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">NOTES SHARING</a>
+                    <a class="navbar-brand" href="courses.jsp">NOTES SHARING</a>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -63,10 +70,9 @@
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="#">About us</a></li>
-                                <li><a href="#">Contact us</a></li>
-                                <li role="separator" class="divider"></li>
-                                <li><a href="#">Separated link</a></li>
+                                <li><a href="about us.jsp">About us</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="contact us.jsp">Contact us</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -98,16 +104,16 @@
         </form>
     </div>
                 <div class="footer">
-            <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-                <ul class="nav nav-pills pull-right">													
+                    <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
+                    <ul class="nav nav-pills pull-right">													
                     <li role="presentation "><a class="b1 edit5" href="# ">About Us</a></li>
                     <li role="presentation "><a class="b1 edit5" href="# ">Home</a></li>
                     <li role=" presentation "><a class="b1 edit5" href="# ">Privacy</a></li>
                     <li role="presentation "><a class="b1 edit5" href="# ">Advertising</a></li>
                     <li role="presentation "><a class="b1 edit5" href="# ">Cookies</a></li>
                     <li role="presentation "><a class="b1 edit5" href="# ">Ad Choices</a></li>
-                </ul>
-                </nav>
-            </div>
+                    </ul>
+                    </div>
+                </div>
 </body>
 </html>

@@ -10,10 +10,8 @@
     <head>
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
         <!-- jQuery library -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
         <!-- Latest compiled JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -44,7 +42,6 @@
     </head>
     <body>
         <div class="header"> 
-
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
@@ -55,20 +52,19 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">NOTES SHARING</a>
+                        <a class="navbar-brand" href="login.jsp">NOTES SHARING</a>
                     </div>
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a  href="#" onclick="return adminlogin()">Administrator</a></li>
+                            <li><a  href="adminlogin.jsp">Administrator</a></li>
                             <li><a  href="signup.jsp">Sign Up page for Students</a><br></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="#">About us</a></li>
-                                    <li><a href="#">Contact us</a></li>
+                                    <li><a href="about us.jsp">About us</a></li>
                                     <li role="separator" class="divider"></li>
-                                    <li><a href="#">Separated link</a></li>
+                                    <li><a href="contact us.jsp">Contact us</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -77,7 +73,7 @@
             </nav>
         </div>
         <div class="container">
-            <form action="loginservlet" method="get">
+            <form action="login" method="get">
                 <label><b>User ID</b></label>
                 <input type="email" class="form-control" name="userid" required><br>
                 <label ><b>Password</b></label>
@@ -89,12 +85,12 @@
         <div class="footer">
             <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
                 <ul class="nav nav-pills pull-right">													
-                    <li role="presentation "><a class="b1 edit5" href="# ">About Us</a></li>
-                    <li role="presentation "><a class="b1 edit5" href="# ">Home</a></li>
-                    <li role=" presentation "><a class="b1 edit5" href="# ">Privacy</a></li>
-                    <li role="presentation "><a class="b1 edit5" href="# ">Advertising</a></li>
-                    <li role="presentation "><a class="b1 edit5" href="# ">Cookies</a></li>
-                    <li role="presentation "><a class="b1 edit5" href="# ">Ad Choices</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="about us.jsp">About Us</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="courses.jsp">Home</a></li>
+                    <li role=" presentation "><a class="b1 edit5" href="#">Privacy</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="#">Advertising</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="#">Cookies</a></li>
+                    <li role="presentation "><a class="b1 edit5" href="#">Ad Choices</a></li>
                 </ul>
                 </nav>
             </div>
@@ -114,6 +110,7 @@
                 return false;
             }
         }
-
+    window.history.forward();
+    function noBack() { window.history.forward(); }
     </script>
 </html>

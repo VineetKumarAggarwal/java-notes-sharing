@@ -82,10 +82,6 @@ public class service {
             pst.setString(2, objbin.getLname());
             pst.setString(3, objbin.getUserid());
             pst.setString(4, objbin.getRollno());
-            System.out.println(objbin.getFname());
-            System.out.println(objbin.getLname());
-            System.out.println(objbin.getUserid());
-            System.out.println(objbin.getRollno());
             int i = pst.executeUpdate();
             if (i > 0) {
                 System.out.print("not done");
@@ -97,7 +93,7 @@ public class service {
         }
         return result;
     }
-
+                                                                   
     public binclass viewRecord(int name) throws ClassNotFoundException, SQLException {
         Connection cnn1;
         binclass objbin = new binclass();
@@ -137,18 +133,34 @@ public class service {
         }
         return objbin;
     }
-
-    public binclass recover_password(String userid, int rollno) throws ClassNotFoundException, SQLException {
+public binclass admin_login_permission(String userid, String password) throws ClassNotFoundException, SQLException {
+        String email = "", pass = "";
         Connection cnn1;
+        Connection cnn2;
         binclass objbin = new binclass();
         Class.forName("com.mysql.jdbc.Driver");
         cnn1 = DriverManager.getConnection("jdbc:mysql:///notes", "root", "");
+        cnn2 = DriverManager.getConnection("jdbc:mysql:///notes", "root", "");
         Statement ss1 = cnn1.createStatement();
-        ResultSet rs1 = ss1.executeQuery("select * from login_student where email='" + userid + "'and rollno='" + rollno + "'");
+        Statement ss2 = cnn2.createStatement();
+        ResultSet rs1 = ss1.executeQuery("select * from login_student where email='" + userid + "'");
+        ResultSet rs2 = ss2.executeQuery("select * from login_student where password='" + password + "'");
         while (rs1.next()) {
             objbin.setUserid(rs1.getString("email"));
-            objbin.setRollno(rs1.getString("rollno"));
             objbin.setPassword(rs1.getString("password"));
+        }
+        return objbin;
+    }
+    public binclass recover_password( int rollno) throws ClassNotFoundException, SQLException {
+        Connection cnn2;
+        binclass objbin = new binclass();
+        Class.forName("com.mysql.jdbc.Driver");
+        cnn2 = DriverManager.getConnection("jdbc:mysql:///notes", "root", "");
+        Statement ss2 = cnn2.createStatement();
+        ResultSet rs2 = ss2.executeQuery("select * from login_student where rollno='" + rollno + "'");
+        while (rs2.next()) {
+            objbin.setRollno(rs2.getString("rollno"));
+            objbin.setPassword(rs2.getString("password"));
         }
         return objbin;
     }
@@ -185,7 +197,42 @@ public class service {
         return objbin;
     }
 
-    public List student_lsit() throws ClassNotFoundException, SQLException {
+    
+
+    public int deleteRecord(int rollno) throws ClassNotFoundException, SQLException {
+        Connection cnn1;
+        binclass objbin = new binclass();
+        Class.forName("com.mysql.jdbc.Driver");
+        cnn1 = DriverManager.getConnection("jdbc:mysql:///notes", "root", "");
+        PreparedStatement ps = cnn1.prepareStatement("delete from login_student where rollno=" + rollno);
+        int i = ps.executeUpdate();
+        return 0;
+    }
+
+    public String addfiles(String filename, String branchname, String samestername) throws ClassNotFoundException, SQLException, FileNotFoundException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection cnn1;
+        
+        String file = "C:\\Users\\desmon\\Desktop\\" + filename;
+        File file1 = new File(file);
+        FileInputStream fin = new FileInputStream(file1);
+        cnn1 = DriverManager.getConnection("jdbc:mysql:///notes", "root", "");
+        PreparedStatement pre = cnn1.prepareStatement("insert into notes_table values (?,?,?)");
+        pre.setString(1, branchname);
+        pre.setString(2, samestername);
+        pre.setBlob(3, (InputStream) fin, (int) file1.length());
+        int i=pre.executeUpdate();
+        if(i>0)
+        {
+        String result="done";
+        return result;
+        }
+        else{
+        String result="notdone";
+        return result;
+        }
+    }
+public List student_lsit() throws ClassNotFoundException, SQLException {
         Connection cnn1;
         List list = new ArrayList();
         Class.forName("com.mysql.jdbc.Driver");
@@ -204,46 +251,22 @@ public class service {
         }
         return list;
     }
-
-    public int deleteRecord(int rollno) throws ClassNotFoundException, SQLException {
-        Connection cnn1;
-        binclass objbin = new binclass();
-        Class.forName("com.mysql.jdbc.Driver");
-        cnn1 = DriverManager.getConnection("jdbc:mysql:///notes", "root", "");
-        PreparedStatement ps = cnn1.prepareStatement("delete from login_student where rollno=" + rollno);
-        int i = ps.executeUpdate();
-        return 0;
-    }
-
-    public String addfiles(String filename, String branchname, String samestername) throws ClassNotFoundException, SQLException, FileNotFoundException {
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection cnn1;
-        String file = "C:\\Users\\vinet\\Desktop\\" + filename;
-        File imgfile = new File(file);
-        FileInputStream fin = new FileInputStream(imgfile);
-        cnn1 = DriverManager.getConnection("jdbc:mysql:///notes", "root", "");
-        PreparedStatement pre = cnn1.prepareStatement("insert into notes_table values (?,?,?)");
-        pre.setString(1, branchname);
-        pre.setString(2, samestername);
-        pre.setBlob(3, (InputStream) fin, (int) imgfile.length());
-        pre.executeUpdate();
-        return null;
-    }
-
-    public binclass view_addfiles() throws ClassNotFoundException, SQLException, FileNotFoundException, IOException {
+    public List view_addfiles() throws ClassNotFoundException, SQLException, FileNotFoundException, IOException {
         String driverName = "com.mysql.jdbc.Driver";
+        List list = new ArrayList();
         Connection con = null;
-        binclass objbin = new binclass();
         String sam = "Semester 2";
         Class.forName(driverName);
         con = DriverManager.getConnection("jdbc:mysql:///notes", "root", "");
         Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("select * from notes_table where semester='" + sam + "'");
+        ResultSet rs = stmt.executeQuery("select * from notes_table");
         while (rs.next()) {
+            binclass objbin = new binclass();
             objbin.setBranch(rs.getString("branch"));
             objbin.setSemester(rs.getString("semester"));
             objbin.setFile(rs.getBlob("pdf"));
+            list.add(objbin);
         }
-        return objbin ;
+        return list ;
     }
 }
